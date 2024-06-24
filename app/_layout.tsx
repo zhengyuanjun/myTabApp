@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import {Slot, Stack} from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
@@ -51,9 +51,10 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
+        <Stack.Screen name="index" options={{ headerShown: false }} />
         {/*here props :No route named "products/index" exists in nested children: ["+not-found", "app", "modal", "_sitemap", "products"]*/}
-        {/*<Stack.Screen name="products/index" options={{ headerShown: false }} />*/}
-        <Stack.Screen name="app" options={{ headerShown: false }} />
+        <Stack.Screen name="products/index" options={{ headerShown: false }} />
+        <Stack.Screen name="products/two" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
